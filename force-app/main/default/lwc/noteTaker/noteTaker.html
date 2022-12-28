@@ -1,4 +1,9 @@
 <template>
+
+    <template for:each={relatedRecords} for:item="record">
+        <c-record-block key={record.recordId} recname={record.recordText} recid={record.recordId}></c-record-block>
+    </template>
+
     <lightning-input-rich-text value={RTInput} onkeypress={handleInput}></lightning-input-rich-text>
     {recordSearch}
     <template if:true={recordTagging}>

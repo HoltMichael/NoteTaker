@@ -3,10 +3,11 @@ import { LightningElement } from 'lwc';
 export default class NoteTaker extends LightningElement {
     hashTagging = false;
     recordTagging = false;
-    RTInput;
 
     recordSearch = '';
     recordSearchLength = 0;
+
+    relatedRecords = [{}];
     
     handleInput(event){
         if(event.keyCode === 35){
@@ -32,6 +33,8 @@ export default class NoteTaker extends LightningElement {
 
     handleRecordSelected(event){
         this.insertText(event.detail.label, event.detail.id);
+        this.addRelatedRecord(event.detail.label, event.detail.id);
+
     }
 
     insertText(text, id){
@@ -44,6 +47,15 @@ export default class NoteTaker extends LightningElement {
 
         this.recordSearch = '';
         this.recordTagging = false;
+    }
 
+    addRelatedRecord(text, id){
+        console.log('here');
+        this.relatedRecords.push({recordText: text, recordId: id});
+        this.relatedRecords.forEach(record => {
+            console.log('record');
+            console.log(record.recordText);
+            console.log(record.recordId);
+        })
     }
 }
