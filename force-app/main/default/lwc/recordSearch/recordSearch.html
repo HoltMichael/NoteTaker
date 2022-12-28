@@ -1,0 +1,9 @@
+<template>
+    <lightning-card >        
+        <template for:each={results} for:item="result">
+                <div key={result.id} >
+                    <c-search-item record={result} ></c-search-item> 
+                </div>
+        </template>
+    </lightning-card>
+</template>

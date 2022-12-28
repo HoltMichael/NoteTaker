@@ -1,0 +1,7 @@
+<template>
+    <lightning-input-rich-text value={RTInput} onkeypress={handleInput}></lightning-input-rich-text>
+    {recordSearch}
+    <template if:true={recordTagging}>
+        <c-record-search searchterm={recordSearch} onrecordselected={handleRecordSelected}></c-record-search>
+    </template>
+</template>
